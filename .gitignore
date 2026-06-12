@@ -31,6 +31,9 @@ Thumbs.db
 *.key
 secrets.ini
 
-# Image files (optional)
+# Image files (optional) — keep docs/screenshots and static assets
 *.png
 *.webp
+!docs/**/*.png
+!static/**/*.png
+!static/**/*.webp

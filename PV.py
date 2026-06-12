@@ -1,6 +1,5 @@
 import datetime as dt
 import plotly.graph_objects as go
-import pandas_datareader as web
 import yfinance as yf
 import sqlite3
 from flask import Flask, request, jsonify, render_template,Blueprint

@@ -28,7 +28,34 @@ class Trie:
             node = node.children[char]
         return node.ticker if node.ticker else None
 
+DEFAULT_STOCKS = [
+    ("Apple", "AAPL"),
+    ("Google", "GOOGL"),
+    ("Amazon", "AMZN"),
+    ("Tesla", "TSLA"),
+    ("Microsoft", "MSFT"),
+    ("Netflix", "NFLX"),
+]
+
+def init_stocks_db():
+    conn = sqlite3.connect("stocks.db")
+    cursor = conn.cursor()
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS stocks (
+            company_name TEXT NOT NULL,
+            ticker TEXT NOT NULL
+        )
+    """)
+    if cursor.execute("SELECT COUNT(*) FROM stocks").fetchone()[0] == 0:
+        cursor.executemany(
+            "INSERT INTO stocks (company_name, ticker) VALUES (?, ?)",
+            DEFAULT_STOCKS,
+        )
+    conn.commit()
+    conn.close()
+
 def fetch_data_from_db():
+    init_stocks_db()
     conn = sqlite3.connect("stocks.db")
     cursor = conn.cursor()
     cursor.execute("SELECT company_name, ticker FROM stocks")

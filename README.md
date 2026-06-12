@@ -6,6 +6,19 @@
 
 ---
 
+## 📸 Screenshots
+
+### Home Dashboard
+![Investify Home Dashboard](docs/screenshots/home.png)
+
+### Monte Carlo Simulation
+![Monte Carlo Stock Price Simulation](docs/screenshots/monte-carlo.png)
+
+### Stock Market News
+![Latest Stock Market News](docs/screenshots/news.png)
+
+---
+
 ## 🧠 Why Investify?
 
 Traditional investing platforms focus on trading — Investify focuses on **learning**.
@@ -41,7 +54,34 @@ Built for students, enthusiasts, and curious minds, Investify helps users unders
 - 📱 **Responsive UI**  
   Fully responsive interface built with modern frontend tools for a smooth experience on all devices.
 
+---
 
 ## 🚧 How to Run Locally
 
-```python MainApp.py
+1. **Clone the repository**
+   ```bash
+   git clone <your-repo-url>
+   cd Investify-Stock-Market-Website-master
+   ```
+
+2. **Install dependencies**
+   ```bash
+   pip install flask flask-cors yfinance plotly numpy pandas scipy sympy bcrypt requests pillow
+   ```
+
+3. **Run the application**
+   ```bash
+   python MainApp.py
+   ```
+
+4. **Open in browser**  
+   Visit [http://127.0.0.1:5000](http://127.0.0.1:5000)
+
+---
+
+## 🧰 Tech Stack
+
+- **Backend:** Flask, SQLite
+- **Data:** yfinance, NewsAPI
+- **Visualization:** Plotly
+- **Frontend:** HTML, Bootstrap, JavaScript
