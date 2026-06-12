@@ -10,7 +10,7 @@ from Cards import stocks_bp
 from form import form
 from flask_cors import CORS
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="Templates")
 CORS(app)
 app.secret_key = "192b9bdd22ab9ed4d12e236c78afcb9a393ec15f71bbf5dc987d54727823bcbf"
 
