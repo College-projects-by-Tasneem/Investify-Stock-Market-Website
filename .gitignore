@@ -1,0 +1,39 @@
+# Virtual environments
+myenv*/
+venv/
+env/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Database files - FIXED with *
+*.db
+*.sqlite
+*.sqlite3
+
+# Editor/IDE files
+.vscode/
+.idea/
+
+# Presentation files
+*.pptx
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Sensitive data
+.env
+*.key
+secrets.ini
+
+# Image files (optional) — keep docs/screenshots and static assets
+*.png
+*.webp
+!docs/**/*.png
+!static/**/*.png
+!static/**/*.webp
