@@ -1,5 +1,3 @@
-**🌐 Live Demo:** [https://investify-2i2v.onrender.com](https://investify-2i2v.onrender.com)
-
 # 📈 Investify – Your Smart Financial Learning Companion
 
 **Investify** is an educational, investor-friendly web application that empowers users to track, simulate, and analyze stock and forex portfolios with interactive tools, real-time data, and powerful financial models.
