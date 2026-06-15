@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Visualizer</title>
+    <title>Portfolio Visualizer — Investify Learning Tool</title>
+    {% include 'partials/education_meta.html' %}
     <link rel="stylesheet" href="/static/styles.css">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="/static/scripts.js"></script>
@@ -191,7 +192,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ url_for('bsm.index')}}">Black-Scholes Merton Equation</a>
-                    <a class="dropdown-item" href="{{ url_for('scc.index')}}">Candle Stick Chart</a>
+                    <a class="dropdown-item" href="{{ url_for('scc.index')}}">Candlestick Chart (Learning)</a>
                     <a class="dropdown-item" href="{{ url_for('pv.index')}}">Portfolio Visualization</a>
                     <a class="dropdown-item" href="{{ url_for('mc.index')}}">Monte Carlo Stimulation</a>
                 </div>
@@ -206,13 +207,15 @@
               <a class="nav-link" href="{{url_for('AboutUs.about')}}">About Us</a>
             </li>
             <li class="nav-item">
-              <a href="{{url_for('form.index')}}" class="nav-link btn btn-outline-light">Login</a>
+              <a href="{{url_for('form.index')}}" class="nav-link btn btn-outline-light">Demo Login</a>
             </li>
           </ul>
         </div>
       </nav>
+    {% include 'partials/education_banner.html' %}
     <div class="container0">
         <h1>Portfolio Visualizer</h1>
+        <p class="education-tool-note">Interactive learning tool — for educational use only</p>
         <div class="form-section">
             <input type="text" id="ticker" placeholder="Stock Ticker">
             <input type="number" id="amount" placeholder="Shares">
@@ -238,5 +241,6 @@
         <div id="chart"></div>
     </div>
     <script src="/static/script.js"></script>
+    {% include 'partials/education_footer.html' %}
 </body>
 </html>

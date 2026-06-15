@@ -4,6 +4,8 @@
 
 > 🚀 Learn. Invest. Simulate. Grow.
 
+> **Note:** This is a college educational project — not a real brokerage or trading platform.
+
 ---
 
 ## 📸 Screenshots
@@ -60,13 +62,13 @@ Built for students, enthusiasts, and curious minds, Investify helps users unders
 
 1. **Clone the repository**
    ```bash
-   git clone <your-repo-url>
-   cd Investify-Stock-Market-Website-master
+   git clone https://github.com/College-projects-by-Tasneem/Investify-Stock-Market-Website.git
+   cd Investify-Stock-Market-Website
    ```
 
 2. **Install dependencies**
    ```bash
-   pip install flask flask-cors yfinance plotly numpy pandas scipy sympy bcrypt requests pillow
+   pip install -r requirements.txt
    ```
 
 3. **Run the application**
@@ -76,6 +78,21 @@ Built for students, enthusiasts, and curious minds, Investify helps users unders
 
 4. **Open in browser**  
    Visit [http://127.0.0.1:5000](http://127.0.0.1:5000)
+
+---
+
+## 🌐 Deploy on Railway (get a shareable URL)
+
+1. Sign up at [railway.app](https://railway.app) with GitHub
+2. **New Project** → **Deploy from GitHub repo** (or paste the public repo URL)
+3. Set start command:
+   ```bash
+   gunicorn MainApp:app --bind 0.0.0.0:$PORT
+   ```
+4. **Settings → Networking → Generate Domain**
+5. Share your `*.up.railway.app` URL
+
+The repo includes `Procfile` and `requirements.txt` for deployment.
 
 ---
 

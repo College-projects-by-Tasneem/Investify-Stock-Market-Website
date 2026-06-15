@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Price Simulation</title>
+    <title>Monte Carlo Simulation — Investify Learning Tool</title>
+    {% include 'partials/education_meta.html' %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -158,7 +159,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ url_for('bsm.index')}}">Black-Scholes Merton Equation</a>
-                    <a class="dropdown-item" href="{{ url_for('scc.index')}}">Candle Stick Chart</a>
+                    <a class="dropdown-item" href="{{ url_for('scc.index')}}">Candlestick Chart (Learning)</a>
                     <a class="dropdown-item" href="{{ url_for('pv.index')}}">Portfolio Visualization</a>
                     <a class="dropdown-item" href="{{ url_for('mc.index')}}">Monte Carlo Stimulation</a>
                 </div>
@@ -173,14 +174,15 @@
               <a class="nav-link" href="{{url_for('AboutUs.about')}}">About Us</a>
             </li>
             <li class="nav-item">
-              <a href="{{url_for('form.index')}}" class="nav-link btn btn-outline-light">Login</a>
+              <a href="{{url_for('form.index')}}" class="nav-link btn btn-outline-light">Demo Login</a>
             </li>
           </ul>
         </div>
       </nav>
+    {% include 'partials/education_banner.html' %}
     <div class="container0">
         <h1 class="text-center mt-5">Monte Carlo Stock Price Simulation</h1>
-        
+        <p class="education-tool-note">Interactive learning tool — for educational use only</p>
         <form id="simulation-form" class="mt-4">
             <div class="form-group mb-3">
                 <label for="company-name">Company Symbol</label>
@@ -241,32 +243,6 @@
             });
         });
     </script>
-    <footer class="bg-dark text-white pt-4 pb-2">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h5>Investify</h5>
-                    <p>Empowering investors with real-time data and advanced tools.</p>
-                    <p>© 2025 Investify. All rights reserved.</p>
-                </div>
-                <div class="col-md-4 text-center">
-                    <h5>Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white">Home</a></li>
-                        <li><a href="#" class="text-white">News</a></li>
-                        <li><a href="#" class="text-white">About Us</a></li>
-                        <li><a href="#" class="text-white">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 text-md-center text-center">
-                    <h5>Follow Us</h5>
-                    <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="text-white mx-2"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-      </footer>
+    {% include 'partials/education_footer.html' %}
 </body>
 </html>

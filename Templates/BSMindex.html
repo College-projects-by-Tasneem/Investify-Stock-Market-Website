@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Black_Scholes Calculator</title>
+    <title>Black-Scholes Calculator — Investify Learning Tool</title>
+    {% include 'partials/education_meta.html' %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
     
     <link rel="icon" href="/static/p1.jpg" type="image/png">
@@ -210,7 +211,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ url_for('bsm.index')}}">Black-Scholes Merton Equation</a>
-                    <a class="dropdown-item" href="{{ url_for('scc.index')}}">Candle Stick Chart</a>
+                    <a class="dropdown-item" href="{{ url_for('scc.index')}}">Candlestick Chart (Learning)</a>
                     <a class="dropdown-item" href="{{ url_for('pv.index')}}">Portfolio Visualization</a>
                     <a class="dropdown-item" href="{{ url_for('mc.index')}}">Monte Carlo Stimulation</a>
                 </div>
@@ -225,13 +226,15 @@
               <a class="nav-link" href="{{url_for('AboutUs.about')}}">About Us</a>
             </li>
             <li class="nav-item">
-              <a href="{{url_for('form.index')}}" class="nav-link btn btn-outline-light">Login</a>
+              <a href="{{url_for('form.index')}}" class="nav-link btn btn-outline-light">Demo Login</a>
             </li>
           </ul>
         </div>
       </nav>
+    {% include 'partials/education_banner.html' %}
     <div class="acontainer0">
         <h1>Black-Scholes Option Pricing</h1>
+        <p class="education-tool-note">Interactive learning tool — for educational use only</p>
         <p>
             The Black-Scholes model is used to calculate the theoretical price of European call and put options. 
             The equations used are:
@@ -270,5 +273,6 @@
         
     </div>
     <script src="/static/BSMscript.js"></script>
+    {% include 'partials/education_footer.html' %}
 </body>
 </html>

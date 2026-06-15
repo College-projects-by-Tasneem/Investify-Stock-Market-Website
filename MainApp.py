@@ -10,13 +10,13 @@ from Cards import stocks_bp
 from form import form
 from flask_cors import CORS
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="Templates")
 CORS(app)
 app.secret_key = "192b9bdd22ab9ed4d12e236c78afcb9a393ec15f71bbf5dc987d54727823bcbf"
 
 # Register blueprints
 app.register_blueprint(bsm, url_prefix='/BSM')
-app.register_blueprint(scc, url_prefix='/SCC')
+app.register_blueprint(scc, url_prefix='/candlestick-chart')
 app.register_blueprint(mc, url_prefix='/MC')
 app.register_blueprint(pv, url_prefix='/PV')
 app.register_blueprint(News,url_prefix='/NEWS')
@@ -34,6 +34,12 @@ def dashboard():
     if 'username' not in session:
         return redirect(url_for('form.login'))
     return render_template('form.html')  # Create this template
+
+@app.route('/SCC/')
+@app.route('/SCC/<path:subpath>')
+def legacy_scc_redirect(subpath=''):
+    target = f'/candlestick-chart/{subpath}' if subpath else '/candlestick-chart/'
+    return redirect(target)
 
 if __name__ == '__main__':
     app.run(debug=True)
