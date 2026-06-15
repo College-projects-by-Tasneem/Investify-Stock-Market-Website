@@ -81,21 +81,6 @@ Built for students, enthusiasts, and curious minds, Investify helps users unders
 
 ---
 
-## 🌐 Deploy on Railway (get a shareable URL)
-
-1. Sign up at [railway.app](https://railway.app) with GitHub
-2. **New Project** → **Deploy from GitHub repo** (or paste the public repo URL)
-3. Set start command:
-   ```bash
-   gunicorn MainApp:app --bind 0.0.0.0:$PORT
-   ```
-4. **Settings → Networking → Generate Domain**
-5. Share your `*.up.railway.app` URL
-
-The repo includes `Procfile` and `requirements.txt` for deployment.
-
----
-
 ## 🧰 Tech Stack
 
 - **Backend:** Flask, SQLite
