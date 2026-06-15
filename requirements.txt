@@ -1,0 +1,12 @@
+flask
+flask-cors
+yfinance
+plotly
+numpy
+pandas
+scipy
+sympy
+bcrypt
+requests
+pillow
+gunicorn
