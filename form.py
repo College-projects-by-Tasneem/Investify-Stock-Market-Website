@@ -8,6 +8,7 @@ CORS(form)
 
 import sqlite3
 import re
+from config import USERS_DB
 # Validation Regex
 USERNAME_REGEX = re.compile(r"^[a-zA-Z0-9_]{3,15}$")
 EMAIL_REGEX = re.compile(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")
@@ -15,7 +16,7 @@ PASSWORD_REGEX = re.compile(r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Z
 
 # Initialize the database
 def get_db_connection():
-    return sqlite3.connect("users.db", check_same_thread=False)
+    return sqlite3.connect(USERS_DB, check_same_thread=False)
 
 def init_db():
     conn = get_db_connection()
@@ -49,7 +50,7 @@ def index():
             flash("Invalid Password: Min 8 chars, 1 uppercase, 1 number, 1 special", "danger")
         else:
             try:
-                conn = sqlite3.connect("users.db")
+                conn = sqlite3.connect(USERS_DB)
                 c = conn.cursor()
                 c.execute("INSERT INTO users (username, email, password) VALUES (?, ?, ?)", 
                           (username, email, password))
@@ -92,7 +93,7 @@ def register():
     hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
 
     try:
-        conn = sqlite3.connect("users.db")
+        conn = sqlite3.connect(USERS_DB)
         c = conn.cursor()
         c.execute("INSERT INTO users (username, email, password) VALUES (?, ?, ?)", 
                   (username, email, hashed_password))
@@ -121,7 +122,7 @@ def login():
         username = request.form.get("username")
         password = request.form.get("password")
 
-    conn = sqlite3.connect("users.db")
+    conn = sqlite3.connect(USERS_DB)
     c = conn.cursor()
     c.execute("SELECT password FROM users WHERE username = ?", (username,))
     user = c.fetchone()

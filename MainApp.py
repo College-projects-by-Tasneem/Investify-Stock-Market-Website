@@ -9,10 +9,11 @@ from Ticker import ticker_bp
 from Cards import stocks_bp
 from form import form
 from flask_cors import CORS
+from config import SECRET_KEY, DEBUG
 
-app = Flask(__name__, template_folder="Templates")
+app = Flask(__name__, template_folder="Templates", static_folder="static")
 CORS(app)
-app.secret_key = "192b9bdd22ab9ed4d12e236c78afcb9a393ec15f71bbf5dc987d54727823bcbf"
+app.secret_key = SECRET_KEY
 
 # Register blueprints
 app.register_blueprint(bsm, url_prefix='/BSM')
@@ -42,4 +43,4 @@ def legacy_scc_redirect(subpath=''):
     return redirect(target)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=DEBUG)

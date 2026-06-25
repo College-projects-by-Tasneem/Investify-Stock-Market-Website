@@ -6,13 +6,14 @@ from flask import Flask, request, jsonify, render_template,Blueprint
 import json
 from plotly.utils import PlotlyJSONEncoder
 import pandas as pd
+from config import PORTFOLIO_DB
 
 pv=Blueprint('pv',__name__)
 
 #app=Flask(__name__)
 # Connecting SQLite Database
 def connection_db():
-    conn=sqlite3.connect('portfolio.db',check_same_thread=False) # Connection object
+    conn=sqlite3.connect(PORTFOLIO_DB,check_same_thread=False) # Connection object
     cursor=conn.cursor() # Cursor for executing queries and interacting with database
     cursor.execute("""CREATE table if not exists portfolio (
                     id INTEGER PRIMARY KEY,
@@ -110,7 +111,7 @@ def update_portfolio(ticker):
 #@app.route("/api/portfolio-chart",methods=['GET'])
 @pv.route("/api/portfolio-chart",methods=['GET'])
 def plotting_chart():
-    connection = sqlite3.connect('portfolio.db')
+    connection = sqlite3.connect(PORTFOLIO_DB)
     cursor=connection.cursor()
     cursor.execute("SELECT ticker,amount,purchase_price,period FROM portfolio")
     portfolio=cursor.fetchall()

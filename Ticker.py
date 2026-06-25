@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify,Blueprint
 import sqlite3
+from config import STOCKS_DB
 
 ticker_bp = Blueprint('ticker', __name__)
 
@@ -38,7 +39,7 @@ DEFAULT_STOCKS = [
 ]
 
 def init_stocks_db():
-    conn = sqlite3.connect("stocks.db")
+    conn = sqlite3.connect(STOCKS_DB)
     cursor = conn.cursor()
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS stocks (
@@ -56,7 +57,7 @@ def init_stocks_db():
 
 def fetch_data_from_db():
     init_stocks_db()
-    conn = sqlite3.connect("stocks.db")
+    conn = sqlite3.connect(STOCKS_DB)
     cursor = conn.cursor()
     cursor.execute("SELECT company_name, ticker FROM stocks")
     data = cursor.fetchall()
